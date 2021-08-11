@@ -1,0 +1,27 @@
+<!-- <ng-container *ngIf="phoneClick"> -->
+<div class="card">
+    <div class="my-box">
+        <div>
+            <h1>Sign In with Your Phone Number</h1>
+
+            <label>Phone Number</label><br>
+            <input type="text" class="form-control" [(ngModel)]="phoneNumber">
+        </div> <br>
+        <div id="recaptcha-container"></div>
+        <div>
+            <button class="btn btn-success my-2" type="button" (click)="sendLoginCode()">SMS Text Login Code</button>
+
+            <div>
+                <hr>
+                <label for="code">Enter your Verification Code Here</label><br>
+                <input type="text" name="code" class="form-control" [(ngModel)]="verificationCode">
+
+                <button class="btn btn-success my-2" type="button" (click)="verifyLoginCode()">Verify</button>
+            </div>
+        </div>
+        <div class="form-group m-2">
+            <a class="forgot text-primary linkText" [routerLink]="['/login']"  >Sign in with other type?</a>
+        </div>
+    </div>
+</div>
+<!-- </ng-container> -->

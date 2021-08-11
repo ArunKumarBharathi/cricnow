@@ -1,0 +1,52 @@
+<!-- <button (click)="get()">get</button> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1">
+            <div class="card card-A">
+                <div>
+                    <div class="p-3">
+                        <ul class="category-select">
+                            <li class="active" [class.active]="features" (click)="getFeatures()">Fixtures</li>
+                            <li [class.active]="!features" (click)="getFeatures()">Results</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                    <ng-container *ngIf="features; else results">
+                                        <ng-container *ngFor="let leagueMatch of leagueMatch">
+                                            <div class="card my-card m-4"*ngIf="leagueMatch.status == 'Fixture'" >
+                                            <div class="card-body p-4">
+                                                <h5 class="card-title" >{{leagueMatch.match_title}}</h5>
+                                                <h6>Result :</h6><span class="card-text">{{leagueMatch.result}}</span>
+                                                <h6>Venue :</h6><span class="card-text">{{leagueMatch.venue}}</span>
+                                                <h6>Date :</h6><span class="card-text">{{leagueMatch.date |
+                                                    date:'longDate'}}</span>
+                                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                            </div>
+                                            </div>
+                                        </ng-container>
+                                    </ng-container>
+                                    <ng-template #results>
+                                        <ng-container *ngFor="let leagueMatch of leagueMatch">
+                                            <div class="card my-card m-4"*ngIf="leagueMatch.status == 'Complete'" >
+                                            <div class="card-body p-4">
+                                                <h5 class="card-title matchScore" (click)="getMatchDetails(leagueMatch.id)">{{leagueMatch.match_title}}</h5>
+                                                <h6>Result :</h6><span class="card-text">{{leagueMatch.result}}</span>
+                                                <h6>Venue :</h6><span class="card-text">{{leagueMatch.venue}}</span>
+                                                <h6>Date :</h6><span class="card-text">{{leagueMatch.date |
+                                                    date:'longDate'}}</span>
+                                                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                            </div>
+                                            </div>
+                                        </ng-container>
+                                    </ng-template>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="card bg-none m-3">
+            <div class="search-result">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchTerm" autocomplete="off"
+                 placeholder="Start searching by teams or date or venue">
+            </div>
+            <table class="table new-table table-borderless caption-top">
+                <ng-container *ngIf="id==='fixtures'">
+                    <caption>List of all upcoming fixtures:</caption>
+                </ng-container>
+                <ng-container  *ngIf="id==='results'">
+                    <caption>Recent match results:</caption>
+                </ng-container>
+                <thead class="table-light">
+                    <tr>
+                        <th>Teams</th>
+                        <th>Date</th>
+                        <th>Venue</th>
+                        <ng-container  *ngIf="id==='results'">
+                            <th>Result</th>
+                        </ng-container>
+                        <!-- <th>Series Id</th> -->
+                    </tr>
+                </thead>
+               <tbody>
+                    <ng-container  *ngIf="id==='fixtures'">
+                            <tr *ngFor="let league of leagueMatch |filter:searchTerm">
+                                <td><p>{{league.home.name}} vs {{league.away.name}}</p></td>
+                                <td>{{league.date | date:'longDate'}}</td>
+                                <td>{{league.venue}}</td>
+                            </tr>
+                    </ng-container>
+                    <ng-container  *ngIf="id==='results'">
+                            <tr *ngFor="let league of leagueMatch |filter:searchTerm">
+                                <td><p class="seriesLink" [routerLink]="['/match',league.id]" >{{league.home.name}} vs {{league.away.name}}</p></td>
+                                <td>{{league.date | date:'longDate'}}</td>
+                                <td>{{league.venue}}</td>
+                                <td>{{league.result}}</td>
+                            </tr>
+                    </ng-container>
+               </tbody>
+            </table>
+        </div>
+    </div>
+</div>

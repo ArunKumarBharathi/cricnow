@@ -1,0 +1,14 @@
+.card{
+    margin: 10px 5px;
+    // margin-bottom: 10px !important;
+    box-shadow: 1px 6px 8px rgb(0 0 0 / 16%);
+    border-radius: 10px;
+}
+tr th:first-child, tr td:first-child{
+    padding-left: 1.25rem;
+}
+.batsman-cell, .bowler-cell{
+    font-family: BentonSans-Bold,Arial,Noto Sans,sans-serif;
+    font-size: .8rem;
+    color: #03a9f4;
+}

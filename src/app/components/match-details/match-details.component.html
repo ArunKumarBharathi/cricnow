@@ -1,0 +1,80 @@
+<!-- <button (click)="getMatchDetails()">get</button> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 offset-1 marTop">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item" *ngFor="let score of matchScoreDetails.live_details.scorecard; let i = index">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#'+'p'+score.innings_number" aria-expanded="true" aria-controls="collapseOne">
+                      {{score.title}}
+                    </button>
+                  </h2>
+                  <div [attr.id]="'p'+score.innings_number" class="accordion-collapse collapse" [ngClass]="{show: i == 0}" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <app-score-card [matchDetail]="matchScoreDetails" [innings]="i"></app-score-card>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Accordion Item #2
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <app-score-card></app-score-card>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+              <div class="card marTop">
+                <div class="row ">
+                    <div class="col">
+                        <h5 class="header-title label p-3">MATCH DETAILS:</h5>
+                    </div>
+                </div>
+            <div>
+                <table cellpadding="8" class="w-100 table table-borderless">
+                    <tbody>
+                        <tr >
+                          <td class="fw-bold border-right">Venue</td>
+                            <td class=" match-venue" colspan="2">{{matchScoreDetails.fixture.venue}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold border-right">Toss</td>
+                            <td>{{matchScoreDetails.live_details.match_summary.toss}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold border-right">Series</td>
+                            <td class=""><a>{{matchScoreDetails.fixture.match_title}}</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold border-right">Season</td>
+                            <td>{{matchScoreDetails.fixture.start_date | date:'yyyy'}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold border-right">Umpires</td>
+                            <td>{{matchScoreDetails.live_details.officials.umpire_1}}, &nbsp;{{matchScoreDetails.live_details.officials.umpire_2}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold border-right">TV Umpire</td>
+                            <td>{{matchScoreDetails.live_details.officials.umpire_tv}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold border-right">Reserve Umpire</td>
+                            <td>{{matchScoreDetails.live_details.officials.umpire_reserve}}</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold border-right">Match Referee</td>
+                            <td>{{matchScoreDetails.live_details.officials.referee}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

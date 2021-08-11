@@ -1,0 +1,93 @@
+<ngx-slick-carousel class="carousel mTop" #slickModal="slick-carousel" [config]="slideConfig">
+  <div ngxSlickItem *ngFor="let results of results" class="slide">
+    <div class="card my-card" [routerLink]="['/match',results.id]"  >
+      <div class="row ">
+        <div class="col py-2">
+          <div class="px-3">
+            <span class="fw-bold header-title label">{{results.home.name}} vs {{results.away.name}}</span>
+          </div>
+         <div class="px-3">
+          <span class="text-muted">{{results.venue}}</span>
+         </div>
+          <div class="px-3">
+            <span  class="text-danger">{{results.result}}</span>
+          </div>
+        </div>
+      </div>
+      <!-- <div>
+        <table cellpadding="8" class="w-100 table table-borderless">
+          <tbody>
+            <tr>
+              <td class="fw-bold border-right">Venue</td>
+              <td class=" match-venue" colspan="2"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> -->
+    </div>
+  </div>
+</ngx-slick-carousel>
+
+
+
+<div class="container">
+  <div class="row my-3">
+    <div class="col-md-6 ">
+      <div class="card marTop myCard">
+        <div class="row ">
+          <div class="col">
+            <h5 class="header-title text-center p-3">Upcoming IPL Matches:</h5>
+            <hr>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table cellpadding="8" class="w-100 table  table-borderless">
+            <tbody>
+              <ng-container *ngFor="let league of leagueMatch">
+                <tr>
+                  <td class="fw-bold border-right">{{league.home.name}} vs {{league.away.name}}</td>
+                <tr>
+                  <td class=" match-venue" colspan="2">{{league.venue}}</td>
+                </tr>
+                 <tr>
+                  <td>{{league.date | date:'longDate'}}</td>
+                 </tr>
+                 <hr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card marTop">
+        <div class="row ">
+          <div class="col">
+            <h5 class="header-title p-3">Cric For You:</h5>
+          </div>
+        </div>
+        <div>
+          <table cellpadding="8" class="w-100 table searchTable table-borderless">
+            <tbody>
+              <tr>
+                <td class="border-right" [routerLink]="['/series']" ><i class="bi bi-caret-right-fill"></i>&nbsp; View All Series</td>
+              </tr>
+              <tr>
+                <td class=" border-right" [routerLink]="['/fixResult','fixtures']"><i class="bi bi-caret-right-fill"></i>&nbsp;Fixtures</td>
+              </tr>
+              <tr>
+                <td class=" border-right" [routerLink]="['/fixResult','results']"><i class="bi bi-caret-right-fill"></i>&nbsp;Results</td>
+              </tr>
+              <!-- <tr>
+                <td class=" border-right"><i class="bi bi-caret-right-fill"></i>&nbsp;Fixtures by date</td>
+              </tr>
+              <tr>
+                <td class=" border-right"><i class="bi bi-caret-right-fill"></i>&nbsp;Results by date</td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+// .card{
+    // margin-top: 20px;
+// }
+.card-A{
+    border: none;
+}
+// .my-card{
+    // border: 2px solid palegreen;
+    // height: 200px;
+// }
+.my-card:hover{
+    box-shadow: 0 6px 8px rgb(0 0 0 / 16%);
+}
+.category-select, .category-select li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.category-select {
+    width: 100%;
+    flex-direction: row;
+    list-style: none;
+    flex-wrap: wrap;
+    background-color: #f1f2f3;
+    border-radius: 16px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+}
+.category-select li {
+    flex: 1 0 auto;
+    text-align: center;
+    height: 100%;
+    line-height: 1px;
+    cursor: pointer;
+}
+.category-select li.active {
+    background: #fff;
+    box-shadow: 1px 1px 6px rgb(0 0 0 / 16%);
+    border-radius: 16px;
+    color: #d00;
+}
+.matchScore:hover{
+    color: red;
+    cursor: pointer;
+}

@@ -1,0 +1,40 @@
+<!-- <button (click)="getSeries()">get Series </button> -->
+
+<!-- <div class="container"> -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card bg-none mx-4">
+                <div *ngFor="let type of seriesType; let i = index">
+                    <button class="btn btn-outline-primary w-100 my-2" [ngClass]="{active: i == index}" (click)="getSeries(i,type)">{{type}}</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card bg-none m-3">
+            <table class="table new-table table-borderless caption-top">
+                <caption>List of all Completed, Ongoing and {{type}} Series:</caption>
+                <thead class="table-light">
+                    <tr>
+                        <th>Series Name</th>
+                        <th>Season</th>
+                        <th>Status</th>
+                        <!-- <th>Series Id</th> -->
+                    </tr>
+                </thead>
+               <tbody>
+                    <ng-container *ngFor="let seriesType of seriesDetails; let i= index">
+                        <ng-container *ngIf="i=== index">
+                            <tr *ngFor="let series of seriesType">
+                                <td><p [routerLink]="['./',series.series_id]"   class="seriesLink">{{series.series_name}}</p></td>
+                                <td>{{series.season}}</td>
+                                <td>{{series.status}}</td>
+                                <!-- <td>{{series.series_id}}</td> -->
+                            </tr>
+                        </ng-container>
+                    </ng-container>
+               </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+<!-- </div> -->

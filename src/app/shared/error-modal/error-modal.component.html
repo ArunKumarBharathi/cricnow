@@ -1,0 +1,13 @@
+<ng-template #errorModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Error occurred</h4>
+        <button type="close" class="btn shadow-none" (click)="modal.dismiss(); closeModal()">X</button>
+        <!-- <a href="#" class="close" (click)="modal.dismiss()"><span>x</span></a> -->
+    </div>
+    <div class="modal-body">
+       <div class="alert alert-danger"> {{error}}</div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" (click)="modal.dismiss(); closeModal()">close</button>
+    </div>
+</ng-template>

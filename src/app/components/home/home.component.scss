@@ -1,0 +1,60 @@
+.slick-slider {
+    width: 88%;
+    margin: auto;
+    // background: rgb(14, 13, 13);
+  }
+    
+  ::ng-deep.slick-prev::before,::ng-deep .slick-next::before {
+    height: 45px;
+    width: 40px;
+    // background: #575d59 !important;
+    color: #000 !important;
+    z-index: 100;
+}
+
+
+.marTop{
+  margin-top: 30px;
+}
+.mTop{
+  margin-top: 10px;
+}
+.myCard{
+  height: 370px;
+}
+.card{
+  margin: 10px 5px;
+  // margin-bottom: 10px !important;
+  box-shadow: 1px 6px 8px rgb(0 0 0 / 16%);
+  border-radius: 10px;
+}
+tr th:first-child, tr td:first-child{
+  padding-left: 1.25rem;
+}
+tr td:nth-child(2){
+  font-family: BentonSans-Bold,Arial,Noto Sans,sans-serif;
+  font-size: .8rem;
+  color: #03a9f4;
+}
+.header-title{
+  color: #03a9f4;
+  margin-bottom: 0px !important;
+}
+.tableNew{
+overflow: hidden;
+}
+@media screen and (max-width:720px) {
+  .my-card{
+    height: 200px;
+  }
+}
+.my-card{
+  height: 130px;
+}
+.label{
+  font-size: .8rem;
+}
+.searchTable tr td:hover{
+  color: red;
+  cursor: pointer;
+}
