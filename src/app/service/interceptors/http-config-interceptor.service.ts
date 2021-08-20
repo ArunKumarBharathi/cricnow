@@ -9,7 +9,7 @@ export class HttpConfigInterceptorService implements HttpInterceptor{
 
   constructor() { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    req = req.clone({headers:req.headers.append('x-rapidapi-key','f27e585d13msh4a7f263ac71bfb8p1f105ajsncbab1279a777')})
+    req = req.clone({headers:req.headers.append('x-rapidapi-key','13564b1849msh8fd880fe8ade726p1af044jsnb8e95dee4633')})
     req = req.clone({headers:req.headers.append('x-rapidapi-host','cricket-live-data.p.rapidapi.com')})
 
     return next.handle(req)
