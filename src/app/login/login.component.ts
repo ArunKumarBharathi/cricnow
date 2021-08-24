@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
       console.log(this.loginForm.value.email,this.loginForm.value.password)
       this.loginService.login(this.loginForm.value.email,this.loginForm.value.password).then((res)=>{
         console.log(res);
+        this.handleResponse(res);
       }).catch((error)=>{
         console.log(error);
         this.showError(error);
@@ -45,6 +46,7 @@ export class LoginComponent implements OnInit {
     }else{
       this.loginService.signUp(this.loginForm.value.email,this.loginForm.value.password).then((res)=>{
         console.log(res);
+        this.handleResponse(res);
       }).catch((error)=>{
         console.log(error);
         this.showError(error);
@@ -61,6 +63,7 @@ export class LoginComponent implements OnInit {
     event.preventDefault();
     this.loginService.fbLogin().then((res)=>{
       console.log(res);
+      this.handleResponse(res);
     }).catch((error)=>{
       console.log(error);
       this.showError(error);
@@ -71,6 +74,7 @@ export class LoginComponent implements OnInit {
     console.log(event)
     this.loginService.twitterLogin().then((res)=>{
       console.log(res);
+      this.handleResponse(res);
     }).catch((error)=>{
       console.log(error);
       this.showError(error);
@@ -80,12 +84,17 @@ export class LoginComponent implements OnInit {
     event.preventDefault();
     this.loginService.googleLogin().then((res)=>{
       console.log(res);
+      this.handleResponse(res);
     }).catch((error)=>{
       console.log(error);
       this.showError(error);
     });;
   }
-  
+  handleResponse(res){
+    if(res.user){
+      this.route.navigate(['/home'])
+    }
+  }
   showError(err){
     this.error=err;
     let modalComp=this.factory.resolveComponentFactory(ErrorModalComponent);
