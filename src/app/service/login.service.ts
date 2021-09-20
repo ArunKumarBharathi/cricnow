@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import  firebase from 'firebase/app';
 
 @Injectable({
@@ -8,7 +9,7 @@ import  firebase from 'firebase/app';
 })
 export class LoginService {
   userState:any;
-  constructor(private fireAuth:AngularFireAuth, private http:HttpClient) {
+  constructor(private fireAuth:AngularFireAuth, private http:HttpClient,private route:Router) {
     this.fireAuth.authState.subscribe((user)=>{
       if(user){
         this.userState=user;
@@ -20,6 +21,7 @@ export class LoginService {
   login(email,password){
   return  this.fireAuth.signInWithEmailAndPassword(email,password).then((res) =>{
       console.log(res);
+      this.handleResponse(res);
       return res
     }).catch((err) =>{
       this.errorResponse(err);
@@ -68,6 +70,13 @@ export class LoginService {
   }
   errorResponse(err){
     throw err.message
+  }
+  handleResponse(res){
+   
+    if(res.user){
+      console.log(res.user)
+      // this.route.navigate(['/home'])
+    }
   }
  logout(){
    this.fireAuth.signOut().then(() =>{

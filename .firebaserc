@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "mygym-8a504"
+  },
+  "targets": {
+    "mygym-8a504": {
+      "hosting": {
+        "cric": [
+          "mygym-8a504"
+        ],
+        "cricnow": [
+          "cricnow"
+        ]
+      }
+    }
+  }
+}

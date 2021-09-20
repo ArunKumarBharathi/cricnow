@@ -24,6 +24,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeComponent } from './components/home/home.component';
 import { FixTuresAndResultsComponent } from './components/fix-tures-and-results/fix-tures-and-results.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     NgbModule,
     HttpClientModule,
     SlickCarouselModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:HttpConfigInterceptorService,multi:true}],
   bootstrap: [AppComponent]

@@ -8,3 +8,8 @@
     // background: linear-gradient(to left, #b92b27, #1565c0) !important;
     // background-position: center;
 }
+@media screen and (max-width:767px) {
+    .nav-item{
+        margin-left: 16px;
+    }
+}

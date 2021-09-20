@@ -1,0 +1,35 @@
+{
+  "hosting": [{
+    "public": "dist/gym",
+    "target": "cric",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  {
+    "public": "dist/gym",
+    "target": "cricnow",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }],
+  "database": {
+    "rules": "database.rules.json"
+  }
+}

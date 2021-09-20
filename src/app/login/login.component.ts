@@ -91,6 +91,7 @@ export class LoginComponent implements OnInit {
     });;
   }
   handleResponse(res){
+    console.log(res.user)
     if(res.user){
       this.route.navigate(['/home'])
     }
