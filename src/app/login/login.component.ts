@@ -35,9 +35,9 @@ export class LoginComponent implements OnInit {
 
   login(){
     if(this.loginRsubmit){
-      console.log(this.loginForm.value.email,this.loginForm.value.password)
+      // console.log(this.loginForm.value.email,this.loginForm.value.password)
       this.loginService.login(this.loginForm.value.email,this.loginForm.value.password).then((res)=>{
-        console.log(res);
+        // console.log(res);
         this.handleResponse(res);
       }).catch((error)=>{
         console.log(error);
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       });
     }else{
       this.loginService.signUp(this.loginForm.value.email,this.loginForm.value.password).then((res)=>{
-        console.log(res);
+        // console.log(res);
         this.handleResponse(res);
       }).catch((error)=>{
         console.log(error);
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
   fbLogin(event:Event){
     event.preventDefault();
     this.loginService.fbLogin().then((res)=>{
-      console.log(res);
+      // console.log(res);
       this.handleResponse(res);
     }).catch((error)=>{
       console.log(error);
@@ -71,9 +71,8 @@ export class LoginComponent implements OnInit {
   }
   twitterLogin(event:Event){
     // event.preventDefault();
-    console.log(event)
     this.loginService.twitterLogin().then((res)=>{
-      console.log(res);
+      // console.log(res);
       this.handleResponse(res);
     }).catch((error)=>{
       console.log(error);
@@ -83,7 +82,7 @@ export class LoginComponent implements OnInit {
   googleLogin(event:Event){
     event.preventDefault();
     this.loginService.googleLogin().then((res)=>{
-      console.log(res);
+      // console.log(res);
       this.handleResponse(res);
     }).catch((error)=>{
       console.log(error);
@@ -91,9 +90,11 @@ export class LoginComponent implements OnInit {
     });;
   }
   handleResponse(res){
-    console.log(res.user)
+    // console.log(res.user)
     if(res.user){
-      this.route.navigate(['/home'])
+      setInterval(() =>{
+        this.route.navigate(['/home'])
+      },1000)
     }
   }
   showError(err){

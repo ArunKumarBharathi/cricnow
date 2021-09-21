@@ -23,7 +23,6 @@ export class MatchDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.activateRoute.data.subscribe((res) =>{
       this.matchScoreDetails=res.matchScoreDetails.results;
-     console.log(this.matchScoreDetails)
     },(err) =>{
       console.log(err)
     })

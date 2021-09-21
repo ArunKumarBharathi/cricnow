@@ -13,6 +13,7 @@ export class LoginService {
     this.fireAuth.authState.subscribe((user)=>{
       if(user){
         this.userState=user;
+        // console.log(this.userState)
         localStorage.setItem('user',JSON.stringify(this.userState))
       }
     })
@@ -20,7 +21,7 @@ export class LoginService {
 
   login(email,password){
   return  this.fireAuth.signInWithEmailAndPassword(email,password).then((res) =>{
-      console.log(res);
+      // console.log(res);
       this.handleResponse(res);
       return res
     }).catch((err) =>{
@@ -29,7 +30,7 @@ export class LoginService {
   }
   signUp(email,password){
     return this.fireAuth.createUserWithEmailAndPassword(email,password).then((res) =>{
-      console.log(res)
+      // console.log(res)
       return res
     }).catch((err) =>{
       this.errorResponse(err);
@@ -37,7 +38,7 @@ export class LoginService {
   }
   fbLogin(){
     return this.fireAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider()).then((res)=>{
-      console.log(res);
+      // console.log(res);
       return res
     }).catch((err) =>{
       this.errorResponse(err);
@@ -45,7 +46,7 @@ export class LoginService {
   }
   twitterLogin(){
     return this.fireAuth.signInWithPopup(new firebase.auth.TwitterAuthProvider()).then((res)=>{
-      console.log(res);
+      // console.log(res);
       return res
     }).catch((err) =>{
       console.log(err)
@@ -54,7 +55,7 @@ export class LoginService {
   }
   googleLogin(){
     return this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((res)=>{
-      console.log(res);
+      // console.log(res);
       return res
     }).catch((err) =>{
       this.errorResponse(err);
@@ -62,7 +63,7 @@ export class LoginService {
   }
   phoneLogin(number,appVerifier){
    return  firebase.auth().signInWithPhoneNumber(number,appVerifier).then((res)=>{
-      console.log(res);
+      // console.log(res);
       return res
     }).catch((err) =>{
       this.errorResponse(err);
@@ -72,10 +73,19 @@ export class LoginService {
     throw err.message
   }
   handleResponse(res){
-   
+    // this.fireAuth.authState.subscribe((user)=>{
+    //   if(user){
+    //     this.userState=user;
+    //     console.log(this.userState)
+    //     localStorage.setItem('user',JSON.stringify(this.userState))
+    //   }
+    // })
     if(res.user){
-      console.log(res.user)
-      // this.route.navigate(['/home'])
+      // console.log(res.user)
+      setInterval(() =>{
+        this.route.navigate(['/home'])
+      },1000)
+      
     }
   }
  logout(){

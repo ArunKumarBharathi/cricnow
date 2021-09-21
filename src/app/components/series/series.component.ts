@@ -31,7 +31,6 @@ export class SeriesComponent implements OnInit {
   ngOnInit(): void {
    this.activateRoute.data.subscribe((res) =>{
      this.series=res.series
-     console.log(res)
      this.series.results.forEach((result) =>{
       this.seriesType.push(result.type)
          //  console.log(result.series)

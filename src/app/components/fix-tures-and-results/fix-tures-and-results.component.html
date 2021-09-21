@@ -6,6 +6,7 @@
                 <input class="form-control" type="text" name="search" [(ngModel)]="searchTerm" autocomplete="off"
                  placeholder="Start searching by teams or date or venue">
             </div>
+            <div class="table-responsive">
             <table class="table new-table table-borderless caption-top">
                 <ng-container *ngIf="id==='fixtures'">
                     <caption>List of all upcoming fixtures:</caption>
@@ -42,6 +43,7 @@
                     </ng-container>
                </tbody>
             </table>
+            </div>
         </div>
     </div>
 </div>

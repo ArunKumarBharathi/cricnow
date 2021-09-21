@@ -35,18 +35,20 @@ export class PhoneSignInComponent implements OnInit, AfterViewInit {
       .catch(error => console.log(error));
   }
   verifyLoginCode() {
-    console.log(this.verificationCode)
+    // console.log(this.verificationCode)
     this.windowRef.confirmationResult
       .confirm(this.verificationCode)
       .then(result => {
-        console.log(result);
+        // console.log(result);
         this.handleResponse(result);
       })
       .catch(error => console.log(error, "Incorrect code entered?"));
   }
   handleResponse(res){
     if(res.user){
-      this.route.navigate(['/home'])
+      setInterval(() =>{
+        this.route.navigate(['/home'])
+      },1000)
     }
   }
 }

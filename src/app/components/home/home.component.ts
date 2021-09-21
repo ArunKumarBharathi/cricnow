@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.seriesService.getSeriesInfo(this.Ipl_id).subscribe((res) =>{
-      // console.log(res)
       res.results.forEach((result) =>{
         this.leagueMatch.push(result);
       })
@@ -22,7 +21,6 @@ export class HomeComponent implements OnInit {
       console.log(err)
     });
     this.seriesService.getResults().subscribe((res) =>{
-      console.log(res)
       res.results.forEach((result) =>{
         this.results.push(result);
       })

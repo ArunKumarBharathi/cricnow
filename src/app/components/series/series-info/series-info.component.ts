@@ -24,7 +24,7 @@ export class SeriesInfoComponent implements OnInit {
   }
   getSeriesInfo(id){
     this.seriesService.getSeriesInfo(id).subscribe((res) =>{
-      console.log(res)
+      // console.log(res)
       // localStorage.setItem('result',JSON.stringify(res))
       res.results.forEach((result) =>{
         this.leagueMatch.push(result);
